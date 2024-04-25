@@ -6,7 +6,7 @@ dotenv.config();
 
 const MAIL_EMPRESA = process.env.MAIL_EMPRESA;
 const PASS_MAIL_EMPRESA = process.env.PASS_MAIL_EMPRESA;
-//const LINK_DEPLOY = process.env.LINK_DEPLOY;
+const LINK_DEPLOY = process.env.LINK_DEPLOY;
 
 const enviarMail = async (email, nombre) => {
 
@@ -26,10 +26,9 @@ const enviarMail = async (email, nombre) => {
         from: `Empresa < ${MAIL_EMPRESA} >`,
         to: email,
         subject: 'Registro exitoso',
-        text: `<h2>Hola ${nombre}, te has registrado correctamente</h2> <br>`
-        `<p>Gracias por registrarte en nuestra plataforma, estamos contentos de 
-        tenerte con nosotros!!</p>`
-        //`<a href= ${LINK_DEPLOY} >Inicia sesión</a>`,
+        html: `<h2>Hola ${nombre}, te has registrado correctamente</h2> <br>
+        <p>Gracias por registrarte en nuestra plataforma, estamos contentos de tenerte con nosotros!!</p>  <br>
+        <a href=${LINK_DEPLOY} >Inicia sesión</a>`
         //link a host local, cambiar por el host de producción
     })
 
